@@ -20,7 +20,7 @@ const createUser = async (filePath, payload) => {
   return await user.save(); // Save user
 };
 
-const getAll = async () => await User.find();
+const getAll = async () => await User.find().sort({ updatedAt: -1 });
 
 const deleteUser = async id => {
   let user = await User.findById(id);
@@ -51,10 +51,15 @@ const updateUser = async (id, file, payload) => {
 
 const getById = async id => await User.findById(id);
 
+const updatePassword = async (id, payload) => {
+  return User.findByIdAndUpdate(id, { password: payload.password });
+};
+
 module.exports = {
   createUser,
   getAll,
   deleteUser,
   updateUser,
-  getById
+  getById,
+  updatePassword
 };

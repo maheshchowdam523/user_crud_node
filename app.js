@@ -25,6 +25,7 @@ app.use(cors());
 
 // Routes
 app.use("/users", require("./routes/user"));
+app.use("/login", require("./routes/login"));
 app.get("/", (req, res) => {
   res.status(200).json({ message: "API is working" });
 });

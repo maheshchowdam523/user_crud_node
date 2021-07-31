@@ -6,7 +6,8 @@ const {
   getAll,
   deleteUser,
   updateUser,
-  getById
+  getById,
+  updatePassword
 } = require("../services/userService");
 
 router.post("/", upload.single("image"), async (req, res, next) => {
@@ -55,6 +56,19 @@ router.get("/:id", async (req, res, next) => {
   } catch (err) {
     console.log(err);
     next({ status: 400, message: "Failed to fetch user" });
+  }
+});
+
+router.patch("/:id/updatePassword", async (req, res, next) => {
+  try {
+    return formatResponse(
+      res,
+      200,
+      await updatePassword(req.params.id, req.body)
+    );
+  } catch (err) {
+    console.log(err);
+    next({ status: 400, message: "Failed to update password" });
   }
 });
 
