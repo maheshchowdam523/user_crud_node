@@ -13,5 +13,5 @@ The image id is stored on user object and maintaining relation between mongo and
 1. Run `npm install` on the project directory
 2. Add `.env` file and add the fields from `.env.sample`
 3. Run `npm start`
-4. Access the application at `http://localhost:8080` - Port can be changes based on your `.env` properties.
+4. Access the application at `http://localhost:8080` - Port can be changed based on your `.env` properties.
 
